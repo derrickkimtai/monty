@@ -65,7 +65,6 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	pall();
 	fclose(bytecode);
 	return (EXIT_SUCCESS);
 }
