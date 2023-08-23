@@ -34,14 +34,24 @@ int main(int argc, char *argv[])
 		{
 			line[line_length - 1] = '\0';
 		}
-		opcode = strtok(line, " ");
-		value = strtok(NULL, "$");
-		if (opcode != NULL && value != NULL)
+		opcode = strtok(line, " \t\n$");
+		value = strtok(NULL, " \t\n$");
+		if (opcode != NULL)
 		{
-			int_value = atoi(value);
+			if (value != NULL)
+			{
+				int_value = atoi(value);
+			}
 			if (strcmp(opcode, "push") == 0)
 			{
-					push(int_value, line_number);
+				if (value == NULL)
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					fclose(bytecode);
+					return (EXIT_FAILURE);
+				}
+				int_value = atoi(value);
+				push(int_value, line_number);
 			}
 			else if (strcmp(opcode, "pall") == 0)
 			{
@@ -56,5 +66,6 @@ int main(int argc, char *argv[])
 		}
 	}
 	pall();
+	fclose(bytecode);
 	return (EXIT_SUCCESS);
 }

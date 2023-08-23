@@ -35,6 +35,7 @@ typedef struct instruction_s
 #include <string.h>
 extern stack_t *stack[LIMIT];
 extern int p;
+
 void push(int value, int line_number);
 void pall();
 

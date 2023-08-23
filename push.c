@@ -14,7 +14,7 @@ void push(int value, int line)
 
 	if (!isdigit(value_str[0]) && value_str[0] != '-' && value_str[0] != '+')
 	{
-		printf("L%d: usage: push integer\n", line);
+		fprintf(stderr, "L%d: usage: push integer\n", line);
 		exit(EXIT_FAILURE);
 	}
 	stack[p] = malloc(sizeof(stack_t));
@@ -30,12 +30,11 @@ void push(int value, int line)
 	p++;
 }
 /**
- *pall:prints the value
+ *pall-prints the value of the opcode
  */
-void pall()
+void pall(void)
 {
 	int i;
-
 
 	if (p == 0)
 	{
@@ -43,6 +42,6 @@ void pall()
 	}
 	for (i = p - 1; i >= 0; i--)
 	{
-		printf("%d\n",stack[i]->n);
+		printf("%d\n", stack[i]->n);
 	}
 }
