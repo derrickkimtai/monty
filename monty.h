@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define LIMIT 1024
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -28,4 +29,14 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+extern stack_t *stack[LIMIT];
+extern int p;
+void push(int value, int line_number);
+void pall();
+
+int main(int argc, char *argv[]);
 #endif
