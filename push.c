@@ -45,3 +45,16 @@ void pall(void)
 		printf("%d\n", stack[i]->n);
 	}
 }
+/**
+ *pint - prints the value
+ */
+void pint(int line_number, FILE *bytecode)
+{
+	if (p == 0)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fclose(bytecode);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", stack[p - 1]->n);
+}
