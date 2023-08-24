@@ -123,3 +123,21 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 }
+/**
+ *
+ *
+ */
+void sub(int line_number, FILE *bytecode)
+{
+	int result;
+
+	if (p < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		fclose(bytecode);
+		exit(EXIT_FAILURE);
+	}
+	result = stack[p - 2]->n - stack[p - 1]->n;
+	pop(line_number, bytecode);
+	stack[p - 1]->n = result;
+}
