@@ -141,3 +141,17 @@ void sub(int line_number, FILE *bytecode)
 	pop(line_number, bytecode);
 	stack[p - 1]->n = result;
 }
+void mul(int line_number, FILE *bytecode)
+{
+	int product;
+
+	if (p < 2)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		fclose(bytecode);
+		exit(EXIT_FAILURE);
+	}
+	product = stack[p - 2]->n * stack[p - 1]->n;
+	pop(line_number, bytecode);
+	stack[p - 1]->n = product;
+}
