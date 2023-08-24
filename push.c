@@ -58,3 +58,19 @@ void pint(int line_number, FILE *bytecode)
 	}
 	printf("%d\n", stack[p - 1]->n);
 }
+/**
+ *
+ *
+ *
+ */
+void pop(int line_number, FILE *bytecode)
+{
+	if (p == 0)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fclose(bytecode);
+		exit(EXIT_FAILURE);
+	}
+	free(stack[p - 1]);
+	p--;
+}

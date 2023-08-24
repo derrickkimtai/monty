@@ -61,6 +61,10 @@ int main(int argc, char *argv[])
 			{
 				pint(line_number, bytecode);
 			}
+			else if (strcmp(opcode, "pop") == 0)
+			{
+				pop(line_number, bytecode);
+			}
 			else
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n",line_number, opcode);

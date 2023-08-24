@@ -40,4 +40,5 @@ void push(int value, int line_number);
 void pall();
 void pint(int line_number, FILE *bytecode);
 int main(int argc, char *argv[]);
+void pop(int line_number, FILE *bytecode);
 #endif
