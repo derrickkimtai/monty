@@ -71,8 +71,8 @@ void pop(int line_number, FILE *bytecode)
 		fclose(bytecode);
 		exit(EXIT_FAILURE);
 	}
-	free(stack[p - 1]);
 	p--;
+	free(stack[p]);
 }
 /**
  *
@@ -92,4 +92,24 @@ void swap(int line_number, FILE *bytecode)
 	temp = stack[p - 1]->n;
 	stack[p - 1]->n = stack[p - 2]->n;
 	stack[p - 2]->n = temp;
+}
+/**
+ *
+ *
+ *
+ *
+ */
+void add(int line_number, FILE *bytecode)
+{
+	int sum;
+
+	if (p < 2)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fclose(bytecode);
+		exit(EXIT_FAILURE);
+	}
+	sum = stack[p -1]->n + stack[p - 2]->n;
+	pop(line_number, bytecode);
+	stack[p -1]->n = sum;
 }

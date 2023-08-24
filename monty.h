@@ -42,5 +42,6 @@ void pint(int line_number, FILE *bytecode);
 int main(int argc, char *argv[]);
 void pop(int line_number, FILE *bytecode);
 void swap(int line_number, FILE *bytecode);
+void add(int line_number, FILE *bytecode);
 
 #endif
