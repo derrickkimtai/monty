@@ -73,6 +73,10 @@ int main(int argc, char *argv[])
 			{
 				add(line_number, bytecode);
 			}
+			else if (strcmp(opcode, "nop") == 0)
+			{
+				nop(stack, line_number);
+			}
 			else
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n",line_number, opcode);

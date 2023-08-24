@@ -43,5 +43,7 @@ int main(int argc, char *argv[]);
 void pop(int line_number, FILE *bytecode);
 void swap(int line_number, FILE *bytecode);
 void add(int line_number, FILE *bytecode);
+void nop(stack_t **stack, unsigned int line_number);
+
 
 #endif
