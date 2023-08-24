@@ -65,6 +65,10 @@ int main(int argc, char *argv[])
 			{
 				pop(line_number, bytecode);
 			}
+			else if (strcmp(opcode, "swap") == 0)
+			{
+				swap(line_number, bytecode);
+			}
 			else
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n",line_number, opcode);
