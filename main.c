@@ -81,6 +81,10 @@ int main(int argc, char *argv[])
 			{
 				sub(line_number, bytecode);
 			}
+			else if (strcmp(opcode, "div_op") == 0)
+			{
+				div_op(line_number, bytecode);
+			}
 			else
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n",line_number, opcode);

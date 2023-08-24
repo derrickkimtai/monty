@@ -155,3 +155,23 @@ void mul(int line_number, FILE *bytecode)
 	pop(line_number, bytecode);
 	stack[p - 1]->n = product;
 }
+void div_op(int line_number, FILE *bytecode)
+{
+	int result;
+
+	if (p < 2)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		fclose(bytecode);
+		exit(EXIT_FAILURE);
+	}
+	if (stack[p - 1]->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		fclose(bytecode);
+		exit(EXIT_FAILURE);
+	}
+	result = stack[p -2]->n / stack[p - 1]->n;
+	pop(line_number, bytecode);
+	stack[p -1]->n = result;
+}

@@ -46,5 +46,6 @@ void add(int line_number, FILE *bytecode);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(int line_number, FILE *bytecode);
 void mul(int line_number, FILE *bytecode);
+void div_op(int line_number, FILE *bytecode);
 
 #endif
